@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TangoLyft – Move Freely, Ride Smart</title>
+  <meta name="description" content="TangoLyft is a smart, affordable ride-hailing platform that connects riders and drivers in seconds. Ride, earn and move your city forward." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #00b894;
+      --brand-dark: #009172;
+      --bg: #f5f7fb;
+      --text: #111827;
+      --muted: #6b7280;
+      --radius-lg: 18px;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: white;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; display: block; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(148,163,184,0.25);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.25rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      color: var(--brand-dark);
+      font-size: 1.2rem;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #7bed9f, #00b894);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--brand-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.6rem 1.3rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: white;
+      box-shadow: 0 12px 30px rgba(0, 184, 148, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 16px 35px rgba(0, 145, 114, 0.4);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(148,163,184,0.7);
+      background: white;
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--brand);
+      color: var(--brand-dark);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #f6fffb, #f9fbff);
+      border-bottom: 1px solid rgba(148,163,184,0.2);
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3.5rem 1.25rem 3.8rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(209,250,229,0.9);
+      color: var(--brand-dark);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 3vw + 1.4rem, 3.1rem);
+      line-height: 1.05;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title span {
+      color: var(--brand-dark);
+    }
+
+    .hero-text {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-meta-item strong {
+      color: var(--text);
+      font-weight: 600;
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.5rem 1.5rem 1.2rem;
+      box-shadow: 0 22px 60px rgba(15,23,42,0.12);
+      border: 1px solid rgba(148,163,184,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-tag {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.07);
+      color: #1d4ed8;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .phone-frame {
+      border-radius: 22px;
+      border: 2px solid #e5e7eb;
+      padding: 0.7rem;
+      max-width: 260px;
+      margin: 0 auto 1.2rem;
+      background: #f9fafb;
+    }
+
+    .phone-screen {
+      background: white;
+      border-radius: 18px;
+      padding: 1.1rem;
+      box-shadow: inset 0 0 0 1px rgba(148,163,184,0.15);
+    }
+
+    .phone-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      border-radius: 999px;
+      padding: 0.1rem 0.55rem;
+      background: rgba(16,185,129,0.08);
+      color: var(--brand-dark);
+    }
+
+    .trip-card {
+      background: #f3f4ff;
+      border-radius: 14px;
+      padding: 0.7rem 0.8rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .trip-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+    }
+
+    .trip-label {
+      color: var(--muted);
+      font-size: 0.73rem;
+    }
+
+    .trip-value {
+      font-weight: 600;
+    }
+
+    .badge-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-card-footer strong {
+      color: var(--text);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 3.2rem 1.25rem;
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 26rem;
+    }
+
+    .section-link {
+      font-size: 0.9rem;
+      color: var(--brand-dark);
+      font-weight: 600;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.35rem 1.1rem;
+      border: 1px solid rgba(148,163,184,0.35);
+      box-shadow: 0 10px 26px rgba(15,23,42,0.06);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.86rem;
+      color: var(--brand-dark);
+      font-weight: 600;
+      margin-top: 0.35rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .pill-list {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .pill-list li::before {
+      content: "• ";
+      color: var(--brand-dark);
+      font-weight: 700;
+    }
+
+    .highlight-box {
+      background: var(--bg);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem;
+      border: 1px dashed rgba(148,163,184,0.6);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .store-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .store-badge {
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      font-size: 0.8rem;
+      display: inline-flex;
+      flex-direction: column;
+      min-width: 140px;
+    }
+
+    .store-badge span:first-child {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .store-badge span:last-child {
+      font-weight: 600;
+      margin-top: 0.1rem;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .news-card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .news-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(148,163,184,0.3);
+      background: #020617;
+      color: #e5e7eb;
+      padding: 2.5rem 1.25rem 1.6rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr repeat(3, minmax(0, 1fr));
+      gap: 1.8rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-inner h4 {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 0.32rem;
+    }
+
+    .footer-links a {
+      color: #e5e7eb;
+    }
+
+    .footer-links a:hover {
+      color: #a5b4fc;
+    }
+
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 1.8rem auto 0;
+      border-top: 1px solid rgba(75,85,99,0.9);
+      padding-top: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-card {
+        max-width: 320px;
+        margin-inline: auto;
+      }
+      .two-col,
+      .download-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .footer-inner {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      header {
+        position: static;
+      }
+      .hero-inner {
+        padding-top: 2.4rem;
+      }
+      section {
+        padding-inline: 1rem;
+      }
+      .footer-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="nav">
+        <a href="#" class="logo">
+          <div class="logo-mark">T</div>
+          <span>TangoLyft</span>
+        </a>
+        <nav class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#cities">Cities</a>
+          <a href="#earn">Earn with us</a>
+          <a href="#download">App</a>
+          <a href="#support">Support</a>
+          <button class="btn btn-outline">Sign in</button>
+          <button class="btn btn-primary">Get the app</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-eyebrow">
+              <span>New</span> <span>Smart rides for busy cities</span>
+            </div>
+            <h1 class="hero-title">
+              Move freely with <span>TangoLyft</span>.
+            </h1>
+            <p class="hero-text">
+              Skip the stress of traffic, parking and cash payments. With TangoLyft, you’re always a few taps away from a safe, affordable ride.
+            </p>
+            <div class="hero-actions">
+              <button class="btn btn-primary">Download TangoLyft</button>
+              <button class="btn btn-outline">Sign up as a driver</button>
+            </div>
+            <div class="hero-meta">
+              <div class="hero-meta-item">
+                <strong>Request in seconds</strong>
+                From pickup to drop-off in just a few taps.
+              </div>
+              <div class="hero-meta-item">
+                <strong>Transparent pricing</strong>
+                See your fare estimate before you ride.
+              </div>
+              <div class="hero-meta-item">
+                <strong>Trusted drivers</strong>
+                Verified partners trained for city driving.
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Preview of the TangoLyft app">
+            <div class="hero-card-tag">Live trip demo</div>
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <div class="phone-header">
+                  <span>TangoLyft</span>
+                  <span class="pill"><span class="badge-dot"></span> Driver nearby</span>
+                </div>
+                <div class="trip-card">
+                  <div class="trip-row">
+                    <span class="trip-label">Pickup</span>
+                    <span class="trip-value">Lekki Phase 1</span>
+                  </div>
+                  <div class="trip-row">
+                    <span class="trip-label">Drop-off</span>
+                    <span class="trip-value">Victoria Island</span>
+                  </div>
+                  <div class="trip-row">
+                    <span class="trip-label">ETA</span>
+                    <span class="trip-value">3 min</span>
+                  </div>
+                </div>
+                <div class="trip-row">
+                  <span class="trip-label">Estimated fare</span>
+                  <span class="trip-value">₦2,300 – ₦2,900</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero-card-footer">
+              <div>
+                <strong>Ride in minutes</strong>
+                <div>Track your driver in real time.</div>
+              </div>
+              <button class="btn btn-primary" style="padding-inline:1rem;font-size:0.8rem;">Try TangoLyft</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Our services</h2>
+              <p class="section-subtitle">
+                TangoLyft is built for how you move: quick rides across town, airport trips, and everyday commuting.
+              </p>
+            </div>
+            <a href="#download" class="section-link">See how the app works →</a>
+          </div>
+
+          <div class="services-grid">
+            <article class="card">
+              <div class="card-tag">Rides</div>
+              <h3>Everyday rides</h3>
+              <p>
+                Request a car in seconds and get picked up by a nearby driver. Perfect for errands, meetups and daily commutes.
+              </p>
+              <div class="card-link">Get a ride →</div>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Airport</div>
+              <h3>Airport transfers</h3>
+              <p>
+                Schedule or request on demand and get to the airport on time with upfront pricing and reliable drivers.
+              </p>
+              <div class="card-link">Plan a trip →</div>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Business</div>
+              <h3>Business travel</h3>
+              <p>
+                Give your team a simple way to move around the city. Centralised billing, ride receipts and spending limits.
+              </p>
+              <div class="card-link">Talk to sales →</div>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Safety</div>
+              <h3>Safety-first rides</h3>
+              <p>
+                In-app SOS, trip sharing, driver ratings and 24/7 support help keep every journey as safe as possible.
+              </p>
+              <div class="card-link">Learn about safety →</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CITIES / VISION -->
+      <section id="cities">
+        <div class="section-inner two-col">
+          <div>
+            <h2 class="section-title">Designed for liveable cities.</h2>
+            <p class="section-subtitle">
+              TangoLyft helps reduce congestion and parking pressure by making it easier to share rides instead of owning more cars.
+            </p>
+            <ul class="pill-list">
+              <li>Smart routing that helps avoid bottlenecks and busy streets.</li>
+              <li>Options for off-peak discounts to spread demand across the day.</li>
+              <li>Data insights that can help partners understand urban mobility trends.</li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <strong style="display:block;margin-bottom:0.4rem;">Growing across Africa and beyond</strong>
+            <p>
+              TangoLyft is rolling out city by city, starting with major hubs and expanding with local partners. 
+              As we launch in new locations, riders and drivers can expect the same reliable experience: clear pricing, quick pickups and strong support.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EARN WITH US -->
+      <section id="earn">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Earn on your terms with TangoLyft.</h2>
+              <p class="section-subtitle">
+                Turn your car, your time, or your fleet into flexible earnings. You choose when to drive — we bring the riders.
+              </p>
+            </div>
+            <a href="#download" class="section-link">Start earning →</a>
+          </div>
+
+          <div class="services-grid">
+            <article class="card">
+              <div class="card-tag">Drivers</div>
+              <h3>Drive and get paid</h3>
+              <p>
+                Accept ride requests when it suits you. See trip details upfront and track earnings in real time inside the app.
+              </p>
+              <div class="card-link">Register as a driver →</div>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Fleet owners</div>
+              <h3>Grow your transport business</h3>
+              <p>
+                Connect multiple cars and drivers to TangoLyft, monitor performance from one dashboard and grow your revenue.
+              </p>
+              <div class="card-link">Onboard your fleet →</div>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Partners</div>
+              <h3>Corporate & community partners</h3>
+              <p>
+                Work with us on staff transport, campus shuttles or community mobility projects tailored to your organisation.
+              </p>
+              <div class="card-link">Partner with us →</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOWNLOAD APP -->
+      <section id="download">
+        <div class="section-inner download-grid">
+          <div>
+            <h2 class="section-title">One app for riders and drivers.</h2>
+            <p class="section-subtitle">
+              Request rides, track trips, chat with your driver and pay securely — all inside the TangoLyft app.
+            </p>
+            <div class="store-badges">
+              <div class="store-badge">
+                <span>Download on</span>
+                <span>App Store</span>
+              </div>
+              <div class="store-badge">
+                <span>Get it on</span>
+                <span>Google Play</span>
+              </div>
+            </div>
+            <p style="font-size:0.86rem;color:var(--muted);margin-top:0.8rem;">
+              Coming soon: dedicated TangoLyft Driver app with advanced earnings and performance tools.
+            </p>
+          </div>
+          <div class="highlight-box">
+            <strong style="display:block;margin-bottom:0.3rem;">Book a ride in advance</strong>
+            <p>
+              Heading to the airport or an important meeting? Soon you’ll be able to schedule a TangoLyft ride ahead of time and relax knowing your car will arrive when you need it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWS / UPDATES -->
+      <section id="news">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">News & updates</h2>
+              <p class="section-subtitle">
+                Product launches, city rollouts and stories from the TangoLyft community.
+              </p>
+            </div>
+            <a href="#" class="section-link">View all updates →</a>
+          </div>
+          <div class="news-grid">
+            <article class="card news-card">
+              <p class="news-meta">October 2025 · Product</p>
+              <h3>TangoLyft launches early access in Lagos</h3>
+              <p>
+                We’re kicking off in Lagos with a focus on safe, reliable rides and strong local partnerships.
+              </p>
+              <div class="card-link">Read more →</div>
+            </article>
+            <article class="card news-card">
+              <p class="news-meta">September 2025 · Safety</p>
+              <h3>New in-app safety tools for late-night trips</h3>
+              <p>
+                Share your live trip, access emergency support and rate every ride to help us keep TangoLyft safe.
+              </p>
+              <div class="card-link">Read more →</div>
+            </article>
+            <article class="card news-card">
+              <p class="news-meta">August 2025 · Community</p>
+              <h3>Partnering with local drivers to shape better mobility</h3>
+              <p>
+                Drivers and riders are co-creating the future of TangoLyft through town halls and feedback programmes.
+              </p>
+              <div class="card-link">Read more →</div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="support">
+      <div class="footer-inner">
+        <div>
+          <div class="logo" style="color:#e5e7eb;margin-bottom:0.55rem;">
+            <div class="logo-mark">T</div>
+            <span>TangoLyft</span>
+          </div>
+          <p style="font-size:0.85rem;color:#9ca3af;max-width:20rem;">
+            TangoLyft is building smart, affordable mobility for growing cities. One app, many ways to move.
+          </p>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Rides</a></li>
+            <li><a href="#services">Airport</a></li>
+            <li><a href="#services">Business</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#cities">About TangoLyft</a></li>
+            <li><a href="#news">Newsroom</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help centre</a></li>
+            <li><a href="#">Safety</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© <span id="year"></span> TangoLyft. All rights reserved.</div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
