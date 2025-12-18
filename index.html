@@ -3,93 +3,93 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TangoLyft | Nigeria-first rides, eats & delivery</title>
-  <meta name="description" content="TangoLyft: Ride, Drive, Tango-Eats, and Tango-Pickup/Delivery in Nigeria — expanding across Africa." />
+  <title>TangoLyft | Ride, Drive, Eats & Delivery</title>
+  <meta name="description" content="TangoLyft in Nigeria: Ride, Drive, Tango-Eats, and Tango-Pickup/Delivery — clean, reliable movement." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://tangolyft.com/" />
 
   <style>
     :root{
-      --bg:#ffffff;
+      --bg:#fff;
       --ink:#0b0f1a;
-      --muted:#5a6476;
-      --line:rgba(15,35,80,.10);
-      --soft:#f4f7ff;
+      --muted:#586174;
+      --line:rgba(0,0,0,.10);
+      --soft:#f6f7f9;
 
-      --blue:#1E6BFF;
-      --blueD:#1146B8;
-
-      --radius:18px;
-      --radius2:14px;
-
-      --shadow:0 18px 60px rgba(17,70,184,.12);
-      --shadow2:0 10px 30px rgba(17,70,184,.10);
-
+      --radius:16px;
+      --radius2:12px;
       --max:1180px;
+
+      --shadow:0 18px 60px rgba(0,0,0,.10);
+      --shadow2:0 10px 26px rgba(0,0,0,.08);
+
+      --accent:#111; /* keep neutral */
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--max);margin:0 auto;padding:0 22px}
 
-    /* Top nav (Uber-ish: simple + solid) */
+    /* NAV */
     header{
       position:sticky;top:0;z-index:50;
-      background:#fff;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:saturate(180%) blur(14px);
       border-bottom:1px solid var(--line);
     }
     .nav{
       display:flex;align-items:center;justify-content:space-between;gap:16px;
       padding:14px 0;
     }
+    .left{
+      display:flex;align-items:center;gap:18px;min-width:0;
+    }
     .brand{
       display:flex;align-items:center;gap:10px;white-space:nowrap;
-      font-weight:900;letter-spacing:-.02em;
+      font-weight:650; letter-spacing:-.01em;
     }
-    .brand .mark{
-      width:34px;height:34px;border-radius:12px;
-      background:linear-gradient(135deg,var(--blue),#77b5ff);
-      box-shadow:0 12px 22px rgba(30,107,255,.22);
-      display:grid;place-items:center;
-      flex:0 0 auto;
+    .mark{
+      width:30px;height:30px;border-radius:10px;
+      background:#111;
+      display:grid;place-items:center;flex:0 0 auto;
     }
-    .brand .mark svg{width:18px;height:18px}
-    .brand .title{
-      font-size:16px;
-    }
-    .brand .title b{font-weight:900}
-    .brand .title span{color:var(--muted);font-weight:800}
-
+    .mark svg{width:18px;height:18px}
+    .brand span{font-size:16px}
     nav ul{
-      list-style:none;margin:0;padding:0;display:flex;gap:6px;align-items:center;flex-wrap:wrap;
+      list-style:none;margin:0;padding:0;
+      display:flex;gap:10px;align-items:center;flex-wrap:wrap;
     }
     nav a{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 12px;border-radius:999px;
-      color:var(--muted);font-weight:850;
-      transition:background .12s ease, color .12s ease, transform .12s ease;
+      padding:8px 10px;border-radius:999px;
+      color:rgba(11,15,26,.78);
+      font-weight:520;
+      transition:background .12s ease, color .12s ease;
     }
     nav a:hover{background:var(--soft);color:var(--ink)}
-    nav a.active{background:rgba(30,107,255,.10);color:var(--blueD)}
     .cta{
       display:flex;gap:10px;align-items:center;flex-wrap:wrap;
     }
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:11px 14px;border-radius:999px;
-      font-weight:900;border:1px solid var(--line);
-      background:#fff;color:var(--blueD);
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 12px;border-radius:999px;
+      font-weight:560;
+      border:1px solid var(--line);
+      background:#fff;color:var(--ink);
       transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
       white-space:nowrap;
     }
     .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow2)}
-    .btn.primary{background:var(--blue);border-color:transparent;color:#fff}
-    .btn.primary:hover{background:var(--blueD)}
-    .btn.ghost{background:transparent}
+    .btn.primary{
+      background:#111;color:#fff;border-color:#111;
+    }
+    .btn.primary:hover{background:#000;border-color:#000}
+    .hamburger{display:none}
 
     /* Mobile menu */
-    .hamburger{display:none}
     @media (max-width: 980px){
       nav{display:none}
       .hamburger{display:inline-flex}
@@ -102,106 +102,109 @@
       .mobile a{
         display:block;
         padding:12px 10px;border-radius:12px;
-        color:var(--ink);font-weight:900;
+        color:var(--ink);font-weight:560;
       }
       .mobile a:hover{background:var(--soft)}
     }
 
-    /* Hero (Uber-ish: big headline + simple tab card) */
+    /* HERO */
+    section{scroll-margin-top:84px}
     .hero{
-      padding:42px 0 26px;
+      padding:44px 0 28px;
       background:
-        radial-gradient(900px 520px at 15% 10%, rgba(30,107,255,.18), transparent 55%),
-        radial-gradient(720px 520px at 90% 0%, rgba(119,181,255,.20), transparent 60%);
+        radial-gradient(900px 520px at 10% 10%, rgba(0,0,0,.05), transparent 60%),
+        radial-gradient(720px 520px at 90% 0%, rgba(0,0,0,.035), transparent 60%);
     }
     .heroGrid{
       display:grid;
-      grid-template-columns:1.05fr .95fr;
+      grid-template-columns:1.08fr .92fr;
       gap:18px;
       align-items:stretch;
     }
     @media (max-width: 980px){.heroGrid{grid-template-columns:1fr}}
     h1{
       margin:0;
-      font-size:52px;line-height:1.02;letter-spacing:-.04em;
+      font-size:54px;line-height:1.02;letter-spacing:-.04em;
+      font-weight:650;
     }
     @media (max-width:560px){h1{font-size:40px}}
     .lead{
       margin:12px 0 0;
       color:var(--muted);
       font-size:18px;line-height:1.65;
-      max-width:62ch;
+      max-width:64ch;
+      font-weight:420;
     }
     .heroLeft{
       background:#fff;border:1px solid var(--line);border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:22px;
     }
-    .chip{
+    .kicker{
       display:inline-flex;align-items:center;gap:10px;
-      padding:8px 12px;border-radius:999px;
-      background:rgba(30,107,255,.08);
-      border:1px solid rgba(30,107,255,.18);
-      color:var(--blueD);
-      font-weight:900;font-size:13px;
+      padding:7px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:rgba(11,15,26,.80);
+      font-weight:520;
+      font-size:13px;
       width:fit-content;
     }
     .heroActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .note{
+      margin-top:14px;
+      padding:12px 14px;border-radius:14px;
+      background:var(--soft);
+      border:1px solid rgba(0,0,0,.08);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
 
+    /* Right panel (Uber-like simple card) */
     .panel{
       background:#fff;border:1px solid var(--line);border-radius:var(--radius);
       box-shadow:var(--shadow);
       overflow:hidden;
     }
     .tabs{
-      display:flex;gap:0;border-bottom:1px solid var(--line);
-      background:linear-gradient(180deg,#fff,rgba(30,107,255,.02));
+      display:flex;border-bottom:1px solid var(--line);
+      background:#fff;
     }
     .tab{
       flex:1;
       padding:12px 10px;
-      font-weight:950;
-      color:var(--muted);
-      cursor:pointer;
-      text-align:center;
+      font-weight:520;
+      color:rgba(11,15,26,.72);
+      cursor:pointer;text-align:center;
       user-select:none;
-      border-right:1px solid rgba(15,35,80,.06);
+      border-right:1px solid rgba(0,0,0,.06);
     }
     .tab:last-child{border-right:none}
     .tab.active{
-      color:var(--blueD);
-      background:rgba(30,107,255,.08);
+      color:var(--ink);
+      background:var(--soft);
     }
     .panelBody{padding:16px}
-    .label{font-weight:950;margin-bottom:8px}
+    .label{font-weight:560;margin-bottom:8px}
     .input{
       width:100%;
       padding:12px 12px;border-radius:14px;
       border:1px solid var(--line);outline:none;
-      font-weight:800;color:var(--ink);
+      font-weight:420;color:var(--ink);
       background:#fff;
     }
-    .input:focus{border-color:rgba(30,107,255,.35);box-shadow:0 0 0 4px rgba(30,107,255,.12)}
+    .input:focus{border-color:rgba(0,0,0,.35);box-shadow:0 0 0 4px rgba(0,0,0,.08)}
     .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     @media (max-width:560px){.row{grid-template-columns:1fr}}
-    .hint{margin-top:10px;color:var(--muted);font-size:13px;line-height:1.6}
     .panelBtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .hint{margin-top:10px;color:var(--muted);font-size:13px;line-height:1.6}
 
     /* Sections */
-    section{scroll-margin-top:84px}
     .section{padding:46px 0}
-    .head{display:flex;justify-content:space-between;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:14px}
-    .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:7px 12px;border-radius:999px;
-      background:rgba(30,107,255,.08);
-      border:1px solid rgba(30,107,255,.14);
-      color:var(--blueD);
-      font-weight:900;
-      width:fit-content;
-    }
-    h2{margin:0;font-size:30px;letter-spacing:-.02em}
-    .desc{margin:8px 0 0;color:var(--muted);line-height:1.7;max-width:78ch}
+    .head{margin-bottom:14px}
+    h2{margin:0;font-size:30px;letter-spacing:-.02em;font-weight:600}
+    .desc{margin:8px 0 0;color:var(--muted);line-height:1.7;max-width:78ch;font-weight:420}
 
     .grid{display:grid;gap:14px}
     .g3{grid-template-columns:repeat(3,1fr)}
@@ -214,15 +217,8 @@
       box-shadow:var(--shadow2);
       padding:18px;
     }
-    .icon{
-      width:42px;height:42px;border-radius:14px;
-      background:rgba(30,107,255,.12);
-      display:grid;place-items:center;
-      color:var(--blueD);font-weight:950;
-      margin-bottom:10px;
-    }
-    .card h3{margin:0 0 6px;font-size:18px}
-    .card p{margin:0;color:var(--muted);line-height:1.65}
+    .card h3{margin:0 0 6px;font-size:18px;font-weight:600}
+    .card p{margin:0;color:var(--muted);line-height:1.65;font-weight:420}
 
     /* Cities */
     .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
@@ -231,44 +227,34 @@
       display:inline-flex;align-items:center;
       padding:10px 12px;border-radius:999px;
       border:1px solid var(--line);
-      background:#fff;color:var(--muted);
-      font-weight:900;
+      background:#fff;color:rgba(11,15,26,.74);
+      font-weight:520;
       transition:transform .12s ease, background .12s ease;
       cursor:pointer;
     }
     .pill:hover{transform:translateY(-1px);background:var(--soft);color:var(--ink)}
 
-    .notice{
-      margin-top:14px;
-      padding:12px 14px;border-radius:16px;
-      background:rgba(30,107,255,.08);
-      border:1px solid rgba(30,107,255,.14);
-      color:var(--muted);
-      line-height:1.6;
-    }
-
     /* Footer */
     footer{
       padding:36px 0 46px;border-top:1px solid var(--line);
-      background:linear-gradient(180deg,#fff,rgba(30,107,255,.03));
+      background:#fff;
     }
     .foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:18px}
     @media (max-width:980px){.foot{grid-template-columns:1fr}}
     .small{font-size:13px;color:var(--muted);line-height:1.6}
-    footer a:hover{text-decoration:underline}
 
-    /* WhatsApp */
+    /* WhatsApp (minimal) */
     #waFloat{
       position:fixed;right:18px;bottom:18px;z-index:60;
       display:flex;align-items:center;gap:10px;
-      padding:12px 14px;border-radius:999px;
-      background:var(--blue);color:#fff;font-weight:950;
-      box-shadow:0 16px 44px rgba(30,107,255,.28);
-      border:1px solid rgba(255,255,255,.22);
+      padding:11px 12px;border-radius:999px;
+      background:#111;color:#fff;font-weight:560;
+      box-shadow:0 16px 44px rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.18);
       transition:transform .12s ease, background .12s ease;
     }
-    #waFloat:hover{transform:translateY(-1px);background:var(--blueD)}
-    #waFloat .b{width:26px;height:26px;border-radius:10px;background:rgba(255,255,255,.18);display:grid;place-items:center}
+    #waFloat:hover{transform:translateY(-1px);background:#000}
+    #waFloat .b{width:26px;height:26px;border-radius:10px;background:rgba(255,255,255,.14);display:grid;place-items:center}
     @media (max-width:520px){#waFloat .t{display:none}}
   </style>
 </head>
@@ -277,27 +263,29 @@
 <header>
   <div class="container">
     <div class="nav">
-      <a class="brand" href="#top" aria-label="TangoLyft home">
-        <span class="mark" aria-label="Logo placeholder">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M4 18c5.5 0 7-7 16-7" stroke="white" stroke-width="2.6" stroke-linecap="round"/>
-            <path d="M8 6h8" stroke="white" stroke-width="2.6" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="title"><b>TangoLyft</b><span>: </span></span>
-      </a>
+      <div class="left">
+        <a class="brand" href="#top" aria-label="TangoLyft home">
+          <span class="mark" aria-label="Logo placeholder">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 18c5.5 0 7-7 16-7" stroke="white" stroke-width="2.6" stroke-linecap="round"/>
+              <path d="M8 6h8" stroke="white" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span>TangoLyft</span>
+        </a>
 
-      <nav aria-label="Primary navigation">
-        <ul>
-          <li><a class="navlink" href="#drive">Drive</a></li>
-          <li><a class="navlink" href="#ride">Ride</a></li>
-          <li><a class="navlink" href="#eats">Tango-Eats</a></li>
-          <li><a class="navlink" href="#pickup">Tango-Pickup/Delivery</a></li>
-        </ul>
-      </nav>
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a class="navlink" href="#drive">Drive</a></li>
+            <li><a class="navlink" href="#ride">Ride</a></li>
+            <li><a class="navlink" href="#eats">Tango-Eats</a></li>
+            <li><a class="navlink" href="#pickup">Tango-Pickup/Delivery</a></li>
+          </ul>
+        </nav>
+      </div>
 
       <div class="cta">
-        <a class="btn ghost hamburger" id="menuBtn" href="javascript:void(0)" aria-label="Open menu">☰ Menu</a>
+        <a class="btn hamburger" id="menuBtn" href="javascript:void(0)" aria-label="Open menu">Menu</a>
         <a class="btn" href="https://crm.tangolyft.com/driver-signup" target="_blank" rel="noopener">Driver signup</a>
         <a class="btn primary" href="#ride">Get the app</a>
       </div>
@@ -319,22 +307,24 @@
   <section class="hero">
     <div class="container heroGrid">
       <div class="heroLeft">
-        <div class="chip">🇳🇬 Nigeria-first • Expanding across Africa</div>
-        <h1>Go anywhere.<br/>Pay less stress.</h1>
+        <div class="kicker">Nigeria-first • Expanding across Africa</div>
+        <h1>Move with confidence.</h1>
         <p class="lead">
-          Book rides, earn as a driver, order Tango-Eats, or send items with Tango-Pickup/Delivery — all from one platform.
+          Ride, drive, order Tango-Eats, or send items with Tango-Pickup/Delivery — built for Nigerian cities.
         </p>
+
         <div class="heroActions">
           <a class="btn primary" href="#ride">Request a ride</a>
           <a class="btn" href="#drive">Start driving</a>
-          <a class="btn ghost" href="#pickup">Send a package →</a>
+          <a class="btn" href="#pickup">Send a package</a>
         </div>
-        <div class="notice">
-          <strong>Placeholders:</strong> App store links, phone number, and some forms are demo-only and can be connected to your CRM/app later.
+
+        <div class="note">
+          <strong>Note:</strong> App store links and phone number are placeholders. We can connect forms to your CRM/app later.
         </div>
       </div>
 
-      <!-- Uber-like tab card -->
+      <!-- Simple action panel -->
       <div class="panel" aria-label="Quick actions">
         <div class="tabs" role="tablist" aria-label="TangoLyft tabs">
           <div class="tab active" data-tab="rideTab" role="tab" aria-selected="true">Ride</div>
@@ -344,7 +334,6 @@
         </div>
 
         <div class="panelBody">
-          <!-- Ride -->
           <div class="tabPanel" id="rideTab">
             <div class="label">Request a ride</div>
             <div class="row">
@@ -355,10 +344,9 @@
               <a class="btn primary" href="#ride">See ride options</a>
               <a class="btn" href="#cities">Available cities</a>
             </div>
-            <div class="hint">Tip: We can connect this to your real rider app later.</div>
+            <div class="hint">This is a landing experience — your app will handle real booking.</div>
           </div>
 
-          <!-- Drive -->
           <div class="tabPanel" id="driveTab" style="display:none">
             <div class="label">Earn with TangoLyft</div>
             <input class="input" placeholder="Your city (e.g., Abuja, Lagos)" />
@@ -366,23 +354,21 @@
               <a class="btn primary" href="https://crm.tangolyft.com/driver-signup" target="_blank" rel="noopener">Start driver signup</a>
               <a class="btn" href="#drive">Learn more</a>
             </div>
-            <div class="hint">Driver signup points to your CRM link (replace anytime).</div>
+            <div class="hint">Driver signup currently points to a CRM placeholder link.</div>
           </div>
 
-          <!-- Eats -->
           <div class="tabPanel" id="eatsTab" style="display:none">
             <div class="label">Order Tango-Eats</div>
             <input class="input" placeholder="Delivery address (placeholder)" />
             <div class="panelBtns">
-              <a class="btn primary" href="#eats">Browse Eats</a>
+              <a class="btn primary" href="#eats">Explore Eats</a>
               <a class="btn" href="#contact">Partner as a restaurant</a>
             </div>
-            <div class="hint">We can build a separate Tango-Eats page later when you’re ready.</div>
+            <div class="hint">We can add a dedicated Eats marketplace page later.</div>
           </div>
 
-          <!-- Pickup -->
           <div class="tabPanel" id="pickupTab" style="display:none">
-            <div class="label">Send with Tango-Pickup/Delivery</div>
+            <div class="label">Send with Pickup/Delivery</div>
             <div class="row">
               <input class="input" placeholder="Pickup location (placeholder)" />
               <input class="input" placeholder="Drop-off location (placeholder)" />
@@ -391,7 +377,7 @@
               <a class="btn primary" href="#pickup">Send an item</a>
               <a class="btn" href="#contact">Business delivery</a>
             </div>
-            <div class="hint">Live tracking + proof-of-delivery can be added in the app phase.</div>
+            <div class="hint">Tracking + proof-of-delivery can be part of the app rollout.</div>
           </div>
         </div>
       </div>
@@ -402,33 +388,23 @@
   <section class="section" id="drive">
     <div class="container">
       <div class="head">
-        <div>
-          <div class="badge">Drive</div>
-          <h2>Drive when you want, earn what you need</h2>
-          <p class="desc">Flexible schedule, clear earnings tracking, and support built for Nigerian realities.</p>
-        </div>
+        <h2>Drive</h2>
+        <p class="desc">Flexible schedule, clearer earnings, and support workflows (phased rollout).</p>
       </div>
 
       <div class="grid g3">
         <div class="card">
-          <div class="icon">⏱</div>
           <h3>Flexible schedule</h3>
-          <p>Drive part-time or full-time. You decide when you’re online.</p>
+          <p>Drive part-time or full-time — you decide.</p>
         </div>
         <div class="card">
-          <div class="icon">₦</div>
-          <h3>Transparent earnings</h3>
-          <p>See trips, payouts, and performance in one place (app phase).</p>
+          <h3>Earnings visibility</h3>
+          <p>Trip history, payouts, and performance tracking (app phase).</p>
         </div>
         <div class="card">
-          <div class="icon">🛡</div>
-          <h3>Safety & support</h3>
-          <p>Support workflows and trip history to reduce disputes (phased rollout).</p>
+          <h3>Support</h3>
+          <p>Help and dispute resolution processes as the platform scales.</p>
         </div>
-      </div>
-
-      <div class="notice">
-        <strong>Driver Signup:</strong> <a href="https://crm.tangolyft.com/driver-signup" target="_blank" rel="noopener">Open the driver signup form</a> (CRM placeholder).
       </div>
     </div>
   </section>
@@ -437,28 +413,19 @@
   <section class="section" id="ride">
     <div class="container">
       <div class="head">
-        <div>
-          <div class="badge">Ride</div>
-          <h2>Get a ride in minutes</h2>
-          <p class="desc">Simple pickup flow, live tracking, and clear receipts (app phase).</p>
-        </div>
+        <h2>Ride</h2>
+        <p class="desc">Simple pickup flow, live trip tracking, and clear receipts (app phase).</p>
       </div>
 
       <div class="grid g2">
         <div class="card">
-          <div class="icon">📍</div>
-          <h3>Accurate pickup</h3>
-          <p>Better pickup guidance for busy streets and landmarks.</p>
+          <h3>Everyday rides</h3>
+          <p>Commutes, errands, airport runs — book quickly.</p>
         </div>
         <div class="card">
-          <div class="icon">💳</div>
           <h3>Payments</h3>
           <p>Card, wallet, and fintech options as partnerships go live.</p>
         </div>
-      </div>
-
-      <div class="notice">
-        <strong>App links:</strong> iOS/Android download buttons are placeholders for now.
       </div>
     </div>
   </section>
@@ -467,28 +434,22 @@
   <section class="section" id="eats">
     <div class="container">
       <div class="head">
-        <div>
-          <div class="badge">Tango-Eats</div>
-          <h2>Food delivery, simplified</h2>
-          <p class="desc">Order from restaurants and track delivery in real-time (product rollout phase).</p>
-        </div>
+        <h2>Tango-Eats</h2>
+        <p class="desc">Food delivery designed for speed and reliability (rollout phase).</p>
       </div>
 
       <div class="grid g3">
         <div class="card">
-          <div class="icon">🍽</div>
           <h3>Restaurants</h3>
           <p>Onboard restaurants and menus in your city.</p>
         </div>
         <div class="card">
-          <div class="icon">🧾</div>
           <h3>Order tracking</h3>
-          <p>Status updates and receipts for every order.</p>
+          <p>Status updates and receipts for each order.</p>
         </div>
         <div class="card">
-          <div class="icon">🏪</div>
-          <h3>Business partnerships</h3>
-          <p>Support for restaurants and cloud kitchens (optional).</p>
+          <h3>Partnerships</h3>
+          <p>Options for restaurants and cloud kitchens later.</p>
         </div>
       </div>
     </div>
@@ -498,23 +459,18 @@
   <section class="section" id="pickup">
     <div class="container">
       <div class="head">
-        <div>
-          <div class="badge">Tango-Pickup/Delivery</div>
-          <h2>Send items across town</h2>
-          <p class="desc">Local deliveries for documents, parcels, and small business errands.</p>
-        </div>
+        <h2>Tango-Pickup/Delivery</h2>
+        <p class="desc">Send documents, parcels, and small business items across town.</p>
       </div>
 
       <div class="grid g2">
         <div class="card">
-          <div class="icon">📦</div>
           <h3>On-demand delivery</h3>
           <p>Request pickup and drop-off quickly for same-day needs.</p>
         </div>
         <div class="card">
-          <div class="icon">🧭</div>
           <h3>Tracking (app phase)</h3>
-          <p>Live tracking and delivery confirmation can be added later.</p>
+          <p>Live tracking and proof-of-delivery can be added.</p>
         </div>
       </div>
     </div>
@@ -524,11 +480,8 @@
   <section class="section" id="cities">
     <div class="container">
       <div class="head">
-        <div>
-          <div class="badge">Cities</div>
-          <h2>Nigeria coverage</h2>
-          <p class="desc">Search Nigerian cities below (we can convert each into its own page later).</p>
-        </div>
+        <h2>Nigeria cities</h2>
+        <p class="desc">Search cities below. We can later make each city a dedicated page.</p>
       </div>
 
       <div class="toolbar">
@@ -570,10 +523,6 @@
         <span class="pill" data-name="yenagoa">Yenagoa</span>
         <span class="pill" data-name="zaria">Zaria</span>
       </div>
-
-      <div class="notice">
-        Next improvement: add dedicated pages for each city (Uber-style), with “Available services”, “Drive & earn”, and “Support”.
-      </div>
     </div>
   </section>
 
@@ -581,25 +530,18 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="head">
-        <div>
-          <div class="badge">Contact</div>
-          <h2>Abuja office</h2>
-          <p class="desc">Suite-119 Jinifa Plaza, Plot 1014. Samuel Ademulegun Adesujo Street. Central Business District Abuja.</p>
-        </div>
+        <h2>Contact</h2>
+        <p class="desc">Suite-119 Jinifa Plaza, Plot 1014. Samuel Ademulegun Adesujo Street. Central Business District Abuja.</p>
       </div>
 
       <div class="grid g2">
         <div class="card">
-          <div class="icon">☎</div>
           <h3>Phone (placeholder)</h3>
           <p>+234-XXX-XXX-XXXX</p>
-          <p class="small">Replace with your support line when ready.</p>
         </div>
         <div class="card">
-          <div class="icon">✉</div>
           <h3>Email</h3>
           <p>support@tangolyft.com</p>
-          <p class="small">We can also add a working contact form later.</p>
         </div>
       </div>
     </div>
@@ -609,71 +551,54 @@
 <footer>
   <div class="container foot">
     <div>
-      <div class="brand" style="margin-bottom:10px">
-        <span class="mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 18c5.5 0 7-7 16-7" stroke="white" stroke-width="2.6" stroke-linecap="round"/>
-            <path d="M8 6h8" stroke="white" stroke-width="2.6" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="title"><b>TangoLyft</b><span>: Ride • Drive • Eats • Pickup</span></span>
+      <div class="small">© <span id="year"></span> TangoLyft. All rights reserved.</div>
+      <div class="small" style="margin-top:10px">
+        Nigeria-first rideshare with Eats and Delivery features (rollout phases).
       </div>
-      <div class="small">
-        Nigeria-first rideshare with expansion across Africa. Clean UX, clear pricing, and reliable movement.
-      </div>
-      <div class="small" style="margin-top:10px">© <span id="year"></span> TangoLyft. All rights reserved.</div>
     </div>
-
     <div>
-      <div style="font-weight:950;margin-bottom:10px">Products</div>
-      <div class="small"><a href="#ride">Ride</a></div>
       <div class="small"><a href="#drive">Drive</a></div>
+      <div class="small"><a href="#ride">Ride</a></div>
       <div class="small"><a href="#eats">Tango-Eats</a></div>
       <div class="small"><a href="#pickup">Tango-Pickup/Delivery</a></div>
     </div>
-
     <div>
-      <div style="font-weight:950;margin-bottom:10px">Address</div>
-      <div class="small">Suite-119 Jinifa Plaza, Plot 1014. Samuel Ademulegun Adesujo Street. Central Business District Abuja.</div>
-      <div class="small" style="margin-top:10px"><b>Phone:</b> +234-XXX-XXX-XXXX</div>
-      <div class="small"><b>Email:</b> support@tangolyft.com</div>
+      <div class="small"><b>Address:</b> Suite-119 Jinifa Plaza, Plot 1014, Samuel Ademulegun Adesujo Street, CBD Abuja.</div>
+      <div class="small" style="margin-top:10px"><b>Email:</b> support@tangolyft.com</div>
     </div>
   </div>
 </footer>
 
-<!-- WhatsApp floating button -->
+<!-- WhatsApp floating button (optional; remove if you want ultra-minimal) -->
 <a id="waFloat"
    href="https://wa.me/234XXXXXXXXXX?text=Hello%20TangoLyft%20Support%2C%20I%20need%20help%20with%20..."
    target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <span class="b">💬</span>
-  <span class="t">WhatsApp Support</span>
+  <span class="t">WhatsApp</span>
 </a>
 
 <script>
-  // Year
+  // year
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Mobile menu toggle
+  // mobile menu toggle
   const menuBtn = document.getElementById("menuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
   if(menuBtn){
-    menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
-    });
+    menuBtn.addEventListener("click", ()=> mobileMenu.classList.toggle("open"));
   }
-  // Close mobile menu when a link is clicked
   if(mobileMenu){
     mobileMenu.querySelectorAll("a").forEach(a=>{
       a.addEventListener("click", ()=> mobileMenu.classList.remove("open"));
     });
   }
 
-  // Tabs
+  // tabs
   const tabs = Array.from(document.querySelectorAll(".tab"));
   const panels = Array.from(document.querySelectorAll(".tabPanel"));
   tabs.forEach(t=>{
     t.addEventListener("click", ()=>{
-      tabs.forEach(x=>{x.classList.remove("active"); x.setAttribute("aria-selected","false");});
+      tabs.forEach(x=>{x.classList.remove("active");x.setAttribute("aria-selected","false");});
       panels.forEach(p=>p.style.display="none");
       t.classList.add("active");
       t.setAttribute("aria-selected","true");
@@ -683,35 +608,19 @@
     });
   });
 
-  // City search filter
+  // city search
   const filter = document.getElementById("cityFilter");
   const pills = Array.from(document.querySelectorAll("#ngCities .pill"));
   if(filter){
-    filter.addEventListener("input", () => {
+    filter.addEventListener("input", ()=>{
       const q = filter.value.trim().toLowerCase();
-      pills.forEach(p => {
-        const name = (p.getAttribute("data-name") || "").toLowerCase();
+      pills.forEach(p=>{
+        const name = (p.getAttribute("data-name")||"").toLowerCase();
         p.style.display = name.includes(q) ? "" : "none";
       });
     });
   }
-
-  // Simple active nav highlight on scroll
-  const sections = ["drive","ride","eats","pickup"].map(id=>document.getElementById(id)).filter(Boolean);
-  const navLinks = Array.from(document.querySelectorAll(".navlink"));
-  const byHref = (id)=> navLinks.find(a => a.getAttribute("href")==="#"+id);
-
-  function setActive(id){
-    navLinks.forEach(a=>a.classList.remove("active"));
-    const el = byHref(id);
-    if(el) el.classList.add("active");
-  }
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting) setActive(e.target.id);
-    });
-  }, {root:null, threshold:0.35});
-  sections.forEach(s=>observer.observe(s));
 </script>
 </body>
 </html>
+
