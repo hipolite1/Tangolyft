@@ -13,10 +13,11 @@
       --bg:#ffffff;
       --ink:#0B0F1A;
       --muted:#5A6476;
+
       --line:rgba(11,15,26,.12);
       --soft:#F6F7F9;
 
-      /* Calm green (used sparingly) */
+      /* calm green (sparingly) */
       --accent:#16A34A;
       --accentSoft:#ECFDF3;
 
@@ -24,8 +25,8 @@
       --radius2:14px;
       --max:1180px;
 
-      --shadow:0 18px 60px rgba(0,0,0,.10);
-      --shadow2:0 10px 28px rgba(0,0,0,.08);
+      --shadow:0 22px 70px rgba(0,0,0,.12);
+      --shadow2:0 12px 30px rgba(0,0,0,.10);
     }
 
     *{box-sizing:border-box}
@@ -36,33 +37,39 @@
     }
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--max);margin:0 auto;padding:0 22px}
-    section{scroll-margin-top:86px}
+    section{scroll-margin-top:92px}
 
-    /* NAV */
+    /* ===== NAV ===== */
     header{
       position:sticky;top:0;z-index:60;
-      background:rgba(255,255,255,.88);
-      backdrop-filter:saturate(180%) blur(14px);
+      background:rgba(255,255,255,.86);
+      backdrop-filter:saturate(180%) blur(16px);
       border-bottom:1px solid var(--line);
     }
     .nav{
       display:flex;align-items:center;justify-content:space-between;gap:16px;
       padding:14px 0;
     }
-    .nav-left{display:flex;align-items:center;gap:20px;min-width:0}
+    .nav-left{display:flex;align-items:center;gap:22px;min-width:0}
     .brand{
-      display:flex;align-items:center;gap:10px;white-space:nowrap;
-      font-weight:600; letter-spacing:-.01em;
+      display:flex;align-items:center;gap:12px;white-space:nowrap;
+      letter-spacing:-.02em;
     }
     .mark{
-      width:30px;height:30px;border-radius:10px;
-      background:#111; display:grid; place-items:center;
+      width:36px;height:36px;border-radius:14px;
+      background:linear-gradient(135deg, #111, #000);
+      display:grid;place-items:center;
+      box-shadow:0 12px 26px rgba(0,0,0,.18);
       flex:0 0 auto;
     }
     .mark svg{width:18px;height:18px}
-    .brand .name{font-size:16px}
-    .brand .name b{font-weight:650}
-    .brand .name span{color:var(--muted);font-weight:500}
+    .brand .name{
+      display:flex;align-items:baseline;gap:6px;
+      font-weight:720;
+      font-size:20px; /* bigger brand */
+      line-height:1;
+    }
+    .brand .name span{color:var(--muted);font-weight:500;font-size:16px}
 
     nav ul{
       list-style:none;margin:0;padding:0;
@@ -70,28 +77,28 @@
     }
     nav a{
       position:relative;
-      padding:8px 10px;border-radius:999px;
+      padding:9px 11px;border-radius:999px;
       color:rgba(11,15,26,.78);
-      font-weight:470;
-      transition:background .12s ease, color .12s ease;
+      font-weight:480;
+      transition:background .12s ease, color .12s ease, transform .12s ease;
     }
-    nav a:hover{background:var(--soft);color:var(--ink)}
+    nav a:hover{background:var(--soft);color:var(--ink);transform:translateY(-1px)}
     nav a.active{color:var(--ink)}
     nav a.active::after{
       content:"";
-      position:absolute;left:10px;right:10px;bottom:5px;
+      position:absolute;left:12px;right:12px;bottom:6px;
       height:2px;border-radius:2px;background:var(--accent);
-      opacity:.9;
+      opacity:.95;
     }
 
     .nav-right{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:10px 12px;border-radius:999px;
+      padding:10px 13px;border-radius:999px;
       border:1px solid var(--line);
       background:#fff;color:var(--ink);
-      font-weight:480;
-      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      font-weight:500;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
       white-space:nowrap;
     }
     .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow2)}
@@ -99,8 +106,9 @@
       background:var(--accent);
       color:#fff;
       border-color:transparent;
+      box-shadow:0 16px 40px rgba(22,163,74,.22);
     }
-    .btn.primary:hover{filter:brightness(.95)}
+    .btn.primary:hover{filter:brightness(.96)}
     .hamburger{display:none}
 
     /* Mobile menu */
@@ -116,18 +124,28 @@
       .mobile a{
         display:block;
         padding:12px 10px;border-radius:12px;
-        font-weight:480;color:var(--ink);
+        font-weight:500;color:var(--ink);
       }
       .mobile a:hover{background:var(--soft)}
     }
 
-    /* HERO */
+    /* ===== HERO ===== */
     .hero{
-      padding:44px 0 28px;
+      padding:54px 0 30px;
       background:
-        radial-gradient(900px 520px at 12% 12%, rgba(0,0,0,.05), transparent 60%),
-        radial-gradient(720px 520px at 90% 0%, rgba(0,0,0,.03), transparent 60%);
+        radial-gradient(1000px 560px at 10% 10%, rgba(22,163,74,.14), transparent 55%),
+        radial-gradient(800px 560px at 90% 0%, rgba(0,0,0,.05), transparent 60%),
+        linear-gradient(180deg, #fff 0%, #fff 60%, rgba(246,247,249,.8) 100%);
     }
+
+    /* subtle “pattern” without images */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+    }
+
     .heroGrid{
       display:grid;
       grid-template-columns:1.12fr .88fr;
@@ -137,37 +155,40 @@
     @media (max-width: 980px){.heroGrid{grid-template-columns:1fr}}
 
     .heroLeft{
-      background:#fff;
-      border:1px solid var(--line);
+      background:rgba(255,255,255,.9);
+      border:1px solid rgba(11,15,26,.10);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:22px;
+      padding:26px;
     }
     .badge{
       display:inline-flex;align-items:center;gap:10px;
-      padding:7px 10px;border-radius:999px;
+      padding:8px 12px;border-radius:999px;
       border:1px solid rgba(22,163,74,.22);
       background:var(--accentSoft);
       color:#0B3A1F;
-      font-size:13px;font-weight:480;
+      font-size:13px;font-weight:520;
       width:fit-content;
     }
     h1{
-      margin:12px 0 0;
-      font-size:54px;line-height:1.02;letter-spacing:-.04em;
-      font-weight:620;
+      margin:14px 0 0;
+      font-size:60px;
+      line-height:1.02;
+      letter-spacing:-.05em;
+      font-weight:760;
     }
-    @media (max-width:560px){h1{font-size:40px}}
+    @media (max-width:560px){h1{font-size:42px}}
     .lead{
-      margin:12px 0 0;
+      margin:14px 0 0;
       color:var(--muted);
-      font-size:18px;line-height:1.65;
-      max-width:64ch;
+      font-size:18px;line-height:1.7;
+      max-width:66ch;
       font-weight:420;
     }
-    .heroActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .heroActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
     .subnote{
-      margin-top:14px;
+      margin-top:16px;
       padding:12px 14px;border-radius:14px;
       background:var(--soft);
       border:1px solid rgba(0,0,0,.08);
@@ -175,46 +196,46 @@
       font-size:13px;line-height:1.6;
     }
 
-    /* Action card (Uber-like) */
+    /* Action card */
     .panel{
-      background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+      background:#fff;border:1px solid rgba(11,15,26,.10);border-radius:var(--radius);
       box-shadow:var(--shadow);
       overflow:hidden;
     }
     .tabs{
-      display:flex;border-bottom:1px solid var(--line);
-      background:#fff;
+      display:flex;border-bottom:1px solid rgba(11,15,26,.10);
+      background:linear-gradient(180deg,#fff,rgba(0,0,0,.02));
     }
     .tab{
       flex:1;
-      padding:12px 10px;
-      font-weight:480;
-      color:rgba(11,15,26,.72);
+      padding:13px 10px;
+      font-weight:520;
+      color:rgba(11,15,26,.70);
       cursor:pointer;
       text-align:center;
       user-select:none;
       position:relative;
+      transition:background .12s ease, color .12s ease;
     }
-    .tab.active{
-      color:var(--ink);
-      background:#fff;
-    }
+    .tab:hover{background:rgba(0,0,0,.02);color:rgba(11,15,26,.85)}
+    .tab.active{color:var(--ink);background:#fff}
     .tab.active::after{
       content:"";
       position:absolute;left:18px;right:18px;bottom:0;
       height:3px;border-radius:3px;background:var(--accent);
     }
-    .panelBody{padding:16px}
-    .label{font-weight:520;margin-bottom:8px}
+    .panelBody{padding:18px}
+    .label{font-weight:600;margin-bottom:10px}
     .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     @media (max-width:560px){.row{grid-template-columns:1fr}}
     .input{
       width:100%;
       padding:12px 12px;border-radius:14px;
-      border:1px solid var(--line);
+      border:1px solid rgba(11,15,26,.14);
       outline:none;
-      font-weight:420;color:var(--ink);
+      font-weight:430;color:var(--ink);
       background:#fff;
+      transition:border-color .12s ease, box-shadow .12s ease;
     }
     .input:focus{
       border-color:rgba(22,163,74,.55);
@@ -223,35 +244,47 @@
     .panelBtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
     .hint{margin-top:10px;color:var(--muted);font-size:13px;line-height:1.6}
 
-    /* Sections */
+    /* ===== SECTIONS ===== */
     .divider{border-top:1px solid rgba(0,0,0,.06)}
-    .section{padding:54px 0}
-    .head{margin-bottom:14px}
-    h2{margin:0;font-size:30px;letter-spacing:-.02em;font-weight:600}
-    .desc{margin:8px 0 0;color:var(--muted);line-height:1.7;max-width:78ch;font-weight:420}
+    .section{padding:58px 0}
+    .head{margin-bottom:16px}
+    h2{margin:0;font-size:32px;letter-spacing:-.02em;font-weight:720}
+    .desc{margin:10px 0 0;color:var(--muted);line-height:1.7;max-width:78ch;font-weight:420}
+
     .grid{display:grid;gap:14px}
     .g3{grid-template-columns:repeat(3,1fr)}
     .g2{grid-template-columns:repeat(2,1fr)}
     @media (max-width:980px){.g3,.g2{grid-template-columns:1fr}}
 
     .card{
-      background:#fff;border:1px solid var(--line);
+      background:#fff;border:1px solid rgba(11,15,26,.10);
       border-radius:var(--radius);
       box-shadow:var(--shadow2);
       padding:18px;
+      transition:transform .14s ease, box-shadow .14s ease;
     }
-    .card h3{margin:0 0 6px;font-size:18px;font-weight:560}
+    .card:hover{transform:translateY(-2px);box-shadow:0 18px 46px rgba(0,0,0,.12)}
+    .icon{
+      width:42px;height:42px;border-radius:14px;
+      background:rgba(22,163,74,.10);
+      border:1px solid rgba(22,163,74,.18);
+      display:grid;place-items:center;
+      color:#0B3A1F;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+    .card h3{margin:0 0 6px;font-size:18px;font-weight:650}
     .card p{margin:0;color:var(--muted);line-height:1.65;font-weight:420}
 
     /* Cities */
-    .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
     .pills{display:flex;flex-wrap:wrap;gap:10px}
     .pill{
       display:inline-flex;align-items:center;
       padding:10px 12px;border-radius:999px;
-      border:1px solid var(--line);
+      border:1px solid rgba(11,15,26,.12);
       background:#fff;color:rgba(11,15,26,.74);
-      font-weight:460;
+      font-weight:500;
       transition:transform .12s ease, background .12s ease;
       cursor:pointer;
     }
@@ -259,8 +292,8 @@
 
     /* Footer */
     footer{
-      padding:40px 0 48px;
-      border-top:1px solid var(--line);
+      padding:42px 0 50px;
+      border-top:1px solid rgba(11,15,26,.12);
       background:#fff;
     }
     .foot{
@@ -269,12 +302,12 @@
     @media (max-width:980px){.foot{grid-template-columns:1fr}}
     .small{font-size:13px;color:var(--muted);line-height:1.6}
 
-    /* WhatsApp (optional) */
+    /* WhatsApp */
     #waFloat{
       position:fixed;right:18px;bottom:18px;z-index:70;
       display:flex;align-items:center;gap:10px;
       padding:11px 12px;border-radius:999px;
-      background:#111;color:#fff;font-weight:480;
+      background:#111;color:#fff;font-weight:520;
       box-shadow:0 16px 44px rgba(0,0,0,.22);
       border:1px solid rgba(255,255,255,.18);
       transition:transform .12s ease, background .12s ease;
@@ -300,7 +333,7 @@
               <path d="M8 6h8" stroke="white" stroke-width="2.6" stroke-linecap="round"/>
             </svg>
           </span>
-          <span class="name"><b>TangoLyft</b><span>: </span></span>
+          <span class="name">TangoLyft <span>:</span></span>
         </a>
 
         <nav aria-label="Primary navigation">
@@ -320,7 +353,7 @@
       </div>
     </div>
 
-    <div class="mobile" id="mobileMenu" aria-label="Mobile navigation">
+    <div class="mobile" id="mobileMenu" aria-label="Mobile navigation" style="display:none;">
       <a href="#drive">Drive</a>
       <a href="#ride">Ride</a>
       <a href="#eats">Tango-Eats</a>
@@ -336,9 +369,9 @@
     <div class="container heroGrid">
       <div class="heroLeft">
         <div class="badge">Nigeria-first • Expansion across Africa</div>
-        <h1>Move with confidence.</h1>
+        <h1>Ride. Deliver. Earn.</h1>
         <p class="lead">
-          Ride, drive, order Tango-Eats, or send items with Tango-Pickup/Delivery — built for Nigerian cities.
+          A clean, reliable platform for rides, food delivery, and local pickup — built for Nigerian cities.
         </p>
 
         <div class="heroActions">
@@ -348,7 +381,7 @@
         </div>
 
         <div class="subnote">
-          <strong>Note:</strong> App store links and phone number are placeholders. We can connect forms to your CRM/app later.
+          <strong>Placeholders:</strong> app links and phone number can be added when ready.
         </div>
       </div>
 
@@ -381,7 +414,7 @@
               <a class="btn primary" href="https://crm.tangolyft.com/driver-signup" target="_blank" rel="noopener">Start driver signup</a>
               <a class="btn" href="#drive">Learn more</a>
             </div>
-            <div class="hint">Driver signup currently points to a CRM placeholder link.</div>
+            <div class="hint">Driver signup points to your CRM link (replace anytime).</div>
           </div>
 
           <div class="tabPanel" id="eatsTab" style="display:none">
@@ -417,21 +450,24 @@
     <div class="container">
       <div class="head">
         <h2>Drive</h2>
-        <p class="desc">Flexible schedule, clearer earnings, and support workflows (phased rollout).</p>
+        <p class="desc">Drive on your schedule with clear earnings and a driver-friendly platform.</p>
       </div>
 
       <div class="grid g3">
         <div class="card">
+          <div class="icon">⏱</div>
           <h3>Flexible schedule</h3>
-          <p>Drive part-time or full-time — you decide.</p>
+          <p>Go online when you want. Drive part-time or full-time.</p>
         </div>
         <div class="card">
+          <div class="icon">₦</div>
           <h3>Earnings visibility</h3>
           <p>Trip history, payouts, and performance tracking (app phase).</p>
         </div>
         <div class="card">
-          <h3>Support</h3>
-          <p>Help and dispute resolution processes as the platform scales.</p>
+          <div class="icon">🛡</div>
+          <h3>Support & safety</h3>
+          <p>Support workflows and trip history to reduce disputes as you scale.</p>
         </div>
       </div>
     </div>
@@ -441,15 +477,17 @@
     <div class="container">
       <div class="head">
         <h2>Ride</h2>
-        <p class="desc">Simple pickup flow, trip tracking, and clear receipts (app phase).</p>
+        <p class="desc">Fast pickups, clear pricing, and a cleaner experience.</p>
       </div>
 
       <div class="grid g2">
         <div class="card">
-          <h3>Everyday rides</h3>
-          <p>Commutes, errands, airport runs — book quickly.</p>
+          <div class="icon">📍</div>
+          <h3>Accurate pickup</h3>
+          <p>Better pickup guidance for busy streets and landmarks.</p>
         </div>
         <div class="card">
+          <div class="icon">💳</div>
           <h3>Payments</h3>
           <p>Card, wallet, and fintech options as partnerships go live.</p>
         </div>
@@ -466,16 +504,19 @@
 
       <div class="grid g3">
         <div class="card">
+          <div class="icon">🍽</div>
           <h3>Restaurants</h3>
           <p>Onboard restaurants and menus in your city.</p>
         </div>
         <div class="card">
+          <div class="icon">🧾</div>
           <h3>Order tracking</h3>
           <p>Status updates and receipts for each order.</p>
         </div>
         <div class="card">
-          <h3>Partnerships</h3>
-          <p>Options for restaurants and cloud kitchens later.</p>
+          <div class="icon">⚡</div>
+          <h3>Fast delivery</h3>
+          <p>Optimized dispatch to reduce delays and improve reliability.</p>
         </div>
       </div>
     </div>
@@ -490,10 +531,12 @@
 
       <div class="grid g2">
         <div class="card">
+          <div class="icon">📦</div>
           <h3>On-demand delivery</h3>
           <p>Request pickup and drop-off quickly for same-day needs.</p>
         </div>
         <div class="card">
+          <div class="icon">🧭</div>
           <h3>Tracking (app phase)</h3>
           <p>Live tracking and proof-of-delivery can be added.</p>
         </div>
@@ -534,18 +577,8 @@
         <span class="pill" data-name="lagos">Lagos</span>
         <span class="pill" data-name="lokoja">Lokoja</span>
         <span class="pill" data-name="makurdi">Makurdi</span>
-        <span class="pill" data-name="nnewi">Nnewi</span>
-        <span class="pill" data-name="nsukka">Nsukka</span>
-        <span class="pill" data-name="ondo">Ondo</span>
-        <span class="pill" data-name="onitsha">Onitsha</span>
-        <span class="pill" data-name="osogbo">Osogbo</span>
-        <span class="pill" data-name="owerri">Owerri</span>
         <span class="pill" data-name="port harcourt">Port Harcourt</span>
-        <span class="pill" data-name="umuahia">Umuahia</span>
         <span class="pill" data-name="uyo">Uyo</span>
-        <span class="pill" data-name="warri">Warri</span>
-        <span class="pill" data-name="yenagoa">Yenagoa</span>
-        <span class="pill" data-name="zaria">Zaria</span>
       </div>
     </div>
   </section>
@@ -554,17 +587,17 @@
     <div class="container">
       <div class="head">
         <h2>Contact</h2>
-        <p class="desc">
-          Suite-119 Jinifa Plaza, Plot 1014. Samuel Ademulegun Adesujo Street. Central Business District Abuja.
-        </p>
+        <p class="desc">Suite-119 Jinifa Plaza, Plot 1014. Samuel Ademulegun Adesujo Street. Central Business District Abuja.</p>
       </div>
 
       <div class="grid g2">
         <div class="card">
+          <div class="icon">☎</div>
           <h3>Phone (placeholder)</h3>
           <p>+234-XXX-XXX-XXXX</p>
         </div>
         <div class="card">
+          <div class="icon">✉</div>
           <h3>Email</h3>
           <p>support@tangolyft.com</p>
         </div>
@@ -608,11 +641,9 @@
   const menuBtn = document.getElementById("menuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
   if(menuBtn){
-    menuBtn.addEventListener("click", ()=> mobileMenu.classList.toggle("open"));
-  }
-  if(mobileMenu){
-    mobileMenu.querySelectorAll("a").forEach(a=>{
-      a.addEventListener("click", ()=> mobileMenu.classList.remove("open"));
+    menuBtn.addEventListener("click", ()=>{
+      const isOpen = mobileMenu.style.display === "block";
+      mobileMenu.style.display = isOpen ? "none" : "block";
     });
   }
 
@@ -663,5 +694,6 @@
 </script>
 </body>
 </html>
+
 
 
